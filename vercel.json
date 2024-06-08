@@ -17,5 +17,6 @@
   ],
   "env": {
     "REACT_APP_API_URL": "https://vijayhobackend.onrender.com"
-  }
+  },
+  "installCommand": "yarn install --legacy-peer-deps"
 }
