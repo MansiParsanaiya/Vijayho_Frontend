@@ -1,17 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "build" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
       }
-    ],
-    "routes": [
-      { "source": "/(.*)", "destination": "/index.html" }
-    ],
-    "env": {
-      "REACT_APP_API_URL": "https://vijayhobackend.onrender.com"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://vijayhobackend.onrender.com"
   }
-  
+}
