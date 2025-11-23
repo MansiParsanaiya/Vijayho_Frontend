@@ -10,10 +10,7 @@ import * as Yup from "yup";
 import { dateFormat } from 'common/dataFormat';
 import useUserRole from 'helpers/userRoleHook';
 import Multiselect from 'multiselect-react-dropdown';
-import Swal from 'sweetalert2'
-
-
-
+import Swal from 'sweetalert2';
 
 const Project = () => {
     const userRole = useUserRole();
@@ -301,7 +298,7 @@ const Project = () => {
             viewTask: <> <Link to={`/task/${project._id}`} >
                 <Button color="warning" size="sm"><strong>View&nbsp;Tasks</strong></Button>
             </Link></>,
-            addTask: <> <Button color="warning" size="sm" onClick={() => { handleOpenTaskModal(index); }}><strong>Add&nbsp;Task</strong></Button></>,
+            addTask: <> <Button color="warning" size="sm" onClick={() => { handleOpenTaskModal(index); }} disabled={isDisabled}><strong>Add&nbsp;Task</strong></Button></>,
             edit: <> <Button color="warning" size="sm" onClick={() => { setModal(true); handleUpdateStudent(index); }} disabled={isDisabled}><strong>Edit</strong></Button></>,
             delete: <> <Button color="danger" size="sm" onClick={() => { handleDeleteFunction(index); }} disabled={isDisabled}><strong>Delete</strong></Button></>
 

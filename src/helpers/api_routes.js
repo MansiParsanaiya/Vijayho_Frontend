@@ -11,7 +11,7 @@ export const apiRoutes = {
 
     "getUsers": "user/users",
     "userRoleUser": "user/role_user",
-    "userRole": "user/user_role", 
+    "userRole": "user/user_role",
 
     "addIncome": "account/addIncome",
     "viewIncome": "account/viewIncome",
@@ -45,13 +45,14 @@ export const apiRoutes = {
     "addFees": "fees/addFees",
     "updateInstallment": "fees/updateInstallmentById",
     "getInstallmentsByStudentIdAll": "fees/getInstallmentsByStudentIdAll",
-    
+
     "addProject": "project/addProject",
     "getAllProjects": "project/getProject",
     "deleteProject": "project/deleteProject",
     "updateProject": "project/updateProject",
     "getAllProjectName": "project/getAllProjectName",
-
+    
+    "getTaskDueNotify": "task/getTaskDueNotify",
     "addTask": "task/addTask",
     "getTaskByProjectId": "task/getTaskByProjectId",
     "updateTaskById": "task/updateTaskById",
@@ -62,6 +63,6 @@ export const apiRoutes = {
     "getAllTask": "task/getAllTask",
     "patchUpdateTaskById": "task/patchUpdateTaskById",
     "deleteTasksByProjectId": "task/deleteTasksByProjectId",
-    
-  
+
+
 }

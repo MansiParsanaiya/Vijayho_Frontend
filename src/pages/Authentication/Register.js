@@ -42,7 +42,7 @@ const Register = props => {
       try {
         const response = await getApi(apiRoutes.totalCount);
         setUserCount(response.data);
-        console.log(response.data, " I'm data");
+        console.log(response.data, " I'm data I'm data I'm data I'm data I'm data I'm data I'm data I'm data I'm data ");
       } catch (error) {
         console.error('Error fetching user count:', error);
       }
@@ -64,7 +64,7 @@ const Register = props => {
       email: Yup.string().required("Please Enter Your Email"),
       username: Yup.string().required("Please Enter Your Username"),
       password: Yup.string().required("Please Enter Your Password"),
-      role: Yup.string().required("Please Choose Your Role "),
+      // role: Yup.string().required("Please Choose Your Role "),
     }),
     onSubmit: (values, { setErrors, resetForm }) => {
       // dispatch(registerUser(values));
@@ -255,7 +255,7 @@ const Register = props => {
                           <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
                         ) : null}
                       </div>
-
+                      {console.log(userCount, "sfjjkdkI am count ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt")}
                       <div className="mb-3">
                         <Label className="form-label">Role</Label>
                         <select
@@ -278,9 +278,9 @@ const Register = props => {
                             </>
                           )}
                         </select>
-                        {validation.touched.role && validation.errors.role && (
+                        {/* {validation.touched.role && validation.errors.role && (
                           <div className="invalid-feedback">{validation.errors.role}</div>
-                        )}
+                        )} */}
                       </div>
 
                       <div className="mt-4">

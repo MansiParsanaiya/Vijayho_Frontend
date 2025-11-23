@@ -117,7 +117,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     setTimeout(() => {
-      setSubscribemodal(true);
+      // setSubscribemodal(true);
     }, 2000);
   }, []);
 

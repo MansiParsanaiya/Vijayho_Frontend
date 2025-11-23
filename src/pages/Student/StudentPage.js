@@ -23,6 +23,7 @@ const Student = () => {
     const [employeemodal, setEmployeeModal] = useState(false);
     const [installmentModal, setInstallmentModal] = useState(false);
     const [students, setStudents] = useState([]);
+    const [employees, setEmployees] = useState([]);
     const [editIndex, setEditIndex] = useState(null);
     const [pageOption, setPageOption] = useState({})
     const [pageValue, setpageValue] = useState(1)
@@ -44,83 +45,122 @@ const Student = () => {
 
     const val = isDisabled ? "1" : "2";
 
-    const [activeTab, setactiveTab] = useState(val);
+    const [activeTab, setactiveTab] = useState("1");
     const [activeForm, setactiveForm] = useState("");
 
-    const columns = useMemo(
-        () => [
+    // const columns = useMemo(
+    //     () => [
+    //         {
+    //             Header: 'Student\'s Name',
+    //             accessor: 'studentName',
+    //         },
+    //         {
+    //             Header: 'Student\'s Number',
+    //             accessor: 'studentNumber'
+    //         },
+    //         {
+    //             Header: 'Father Name',
+    //             accessor: 'fatherName',
+    //         },
+    //         {
+    //             Header: 'Mother Number',
+    //             accessor: 'motherName'
+    //         },
+    //         {
+    //             Header: 'Parents\'s Name',
+    //             accessor: 'parentNumber',
+    //         },
+    //         {
+    //             Header: 'College Name',
+    //             accessor: 'college'
+    //         },
+    //         {
+    //             Header: 'Qualification',
+    //             accessor: 'qualification',
+    //         },
+    //         {
+    //             Header: 'Aadhar Card Number',
+    //             accessor: 'aadharCard'
+    //         },
+    //         {
+    //             Header: 'Course Name',
+    //             accessor: 'courseName'
+    //         },
+    //         {
+    //             Header: 'Fees Amount',
+    //             accessor: 'feesPay',
+    //         },
+    //         {
+    //             Header: 'Amount Paid',
+    //             accessor: 'amountPay'
+    //         },
+    //         {
+    //             Header: 'Remaining Amount',
+    //             accessor: 'remainingFees',
+    //         },
+    //         {
+    //             Header: 'Date',
+    //             accessor: 'date',
+    //         },
+    //         {
+    //             Header: 'View Payment',
+    //             accessor: 'viewPayment'
+    //         },
+    //         {
+    //             Header: 'Pay installments',
+    //             accessor: 'payInstallment'
+    //         },
+    //         {
+    //             Header: 'Edit',
+    //             accessor: 'edit'
+    //         },
+    //         {
+    //             Header: 'Delete',
+    //             accessor: 'delete'
+    //         }
+    //     ],
+    //     []
+    // );
 
-            {
-                Header: 'Student\'s Name',
-                accessor: 'studentName',
-            },
-            {
-                Header: 'Student\'s Number',
-                accessor: 'studentNumber'
-            },
-            {
-                Header: 'Father Name',
-                accessor: 'fatherName',
-            },
-            {
-                Header: 'Mother Number',
-                accessor: 'motherName'
-            },
-            {
-                Header: 'Parents\'s Name',
-                accessor: 'parentNumber',
-            },
-            {
-                Header: 'College Name',
-                accessor: 'college'
-            },
-            {
-                Header: 'Qualification',
-                accessor: 'qualification',
-            },
-            {
-                Header: 'Aadhar Card Number',
-                accessor: 'aadharCard'
-            },
-            {
-                Header: 'Course Name',
-                accessor: 'courseName'
-            },
-            {
-                Header: 'Fees Amount',
-                accessor: 'feesPay',
-            },
-            {
-                Header: 'Amount Paid',
-                accessor: 'amountPay'
-            },
-            {
-                Header: 'Remaining Amount',
-                accessor: 'remainingFees',
-            },
-            {
-                Header: 'Date',
-                accessor: 'date',
-            },
-            {
-                Header: 'View Payment',
-                accessor: 'viewPayment'
-            },
-            {
-                Header: 'Pay installments',
-                accessor: 'payInstallment'
-            },
-            {
-                Header: 'Edit',
-                accessor: 'edit'
-            },
-            {
-                Header: 'Delete',
-                accessor: 'delete'
-            }
-        ],
-        []
-    );
+    const studentColumns = useMemo(() => [
+        { Header: "Student's Name", accessor: 'studentName' },
+        { Header: "Student's Number", accessor: 'studentNumber' },
+        { Header: 'Father Name', accessor: 'fatherName' },
+        { Header: 'Mother Name', accessor: 'motherName' },
+        { Header: 'Parent\'s Number', accessor: 'parentNumber' },
+        { Header: 'College Name', accessor: 'college' },
+        { Header: 'Qualification', accessor: 'qualification' },
+        { Header: 'Aadhar Card Number', accessor: 'aadharCard' },
+        { Header: 'Course Name', accessor: 'courseName' },
+        { Header: 'Fees Amount', accessor: 'feesPay' },
+        { Header: 'Amount Paid', accessor: 'amountPay' },
+        { Header: 'Remaining Amount', accessor: 'remainingFees' },
+        { Header: 'Date', accessor: 'date' },
+        { Header: 'View Payment', accessor: 'viewPayment' },
+        { Header: 'Pay Installments', accessor: 'payInstallment' },
+        { Header: 'Edit', accessor: 'edit' },
+        { Header: 'Delete', accessor: 'delete' }
+    ], []);
+
+    const employeeColumns = useMemo(() => [
+        { Header: 'Employee ID', accessor: 'employeeID' },
+        { Header: 'First Name', accessor: 'firstName' },
+        { Header: 'Last Name', accessor: 'lastName' },
+        { Header: 'Email', accessor: 'email' },
+        // { Header: 'Country', accessor: 'country' },
+        // { Header: 'State', accessor: 'state' },
+        // { Header: 'City', accessor: 'city' },
+        // { Header: 'Pincode', accessor: 'pincode' },
+        { Header: 'Address', accessor: 'address' },
+        { Header: 'Gender', accessor: 'gender' },
+        { Header: 'Date of Birth', accessor: 'dob' },
+        { Header: 'Contact Number', accessor: 'contactNo' },
+        { Header: 'Date of Joining', accessor: 'dateOfJoining' },
+        { Header: 'Profile Image', accessor: 'profileImage' },
+        // { Header: 'User Type', accessor: 'userType' },
+        { Header: 'Edit', accessor: 'edit' },
+        { Header: 'Delete', accessor: 'delete' }
+    ], []);
 
     const toggleTab = tab => {
         if (activeTab !== tab) {
@@ -133,6 +173,7 @@ const Student = () => {
             }
             else if (tab === "2") {
                 console.log("active 22222222222222222222222222222222222")
+                fetchEmployeeData(searchWord, customPageSizeValue, pageValue);
                 // fetchTaskData(projectId, searchWord, customPageSizeValue, pageValue);
             }
         }
@@ -144,6 +185,7 @@ const Student = () => {
             }
             else if (tab === "2") {
                 console.log("active 22222222222222222222222222222222222")
+                fetchEmployeeData(searchWord, customPageSizeValue, pageValue);
                 // fetchTaskData(projectId, searchWord, customPageSizeValue, pageValue);
             }
         }
@@ -201,7 +243,7 @@ const Student = () => {
         dob: Yup.date().required('Date of birth is required'),
         contactNo: Yup.number().required('Contact number is required'),
         // profileImage: Yup.string().required('Profile image is required'),
-        // dateOfJoining: Yup.date().default(() => new Date()).required('Created at is required')
+        dateOfJoining: Yup.date().default(() => new Date()).required('Joining Date is required')
     });
 
     const [employeeFormData, setEmployeeFormData] = useState({
@@ -540,6 +582,52 @@ const Student = () => {
         };
     });
 
+    const formattedEmployeeData = employees.map((employee, index) => {
+        const dob = employee.dob?.split("T")[0];
+        const dateOfJoining = employee.dateOfJoining?.split("T")[0];
+        return {
+            employeeID: employee.employeeID,
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            email: employee.email,
+            country: employee.country,
+            state: employee.state,
+            city: employee.city,
+            pincode: employee.pincode,
+            address: employee.address,
+            gender: employee.gender,
+            dob: dateFormat(dob, "dd/MM/yyyy"),
+            contactNo: employee.contactNo,
+            dateOfJoining: dateFormat(dateOfJoining, "dd/MM/yyyy"),
+            profileImage: <img src={employee.profileImage} alt="Profile" style={{ width: '50px', height: '50px' }} />,
+            userType: employee.userType,
+            edit: (
+                <Button
+                    color="warning"
+                    size="sm"
+                    // onClick={() => { setEmployeeModal(true); handleUpdateEmployee(index); }}
+                    disabled={false} // Replace with your condition
+                >
+                    <strong>Edit</strong>
+                </Button>
+            ),
+            delete: (
+                <Button
+                    color="danger"
+                    size="sm"
+                    // onClick={() => handleDeleteEmployee(index)}
+                    disabled={false} // Replace with your condition
+                >
+                    <strong>Delete</strong>
+                </Button>
+            )
+        };
+    });
+
+    const columns = activeTab === '1' ? studentColumns : employeeColumns;
+    const data = activeTab === '1' ? formattedData : formattedEmployeeData;
+
+
     const filterData = (value, pageSize, page) => {
         fetchStudentData(value, pageSize, page)
     }
@@ -580,6 +668,41 @@ const Student = () => {
         fetchCourse();
         fetchBranches();
     }, []);
+
+    const fetchEmployeeData = async (searchPara, pageSize, page) => {
+        try {
+
+            let url = `${apiRoutes.getEmployee}`
+            if (searchPara != undefined) {
+                url = `${apiRoutes.getEmployee}?page=${page}&limit=${pageSize}&search=${searchPara}`
+            }
+            else {
+                url = `${apiRoutes.getEmployee}?page=${page}&limit=${pageSize}`
+            }
+
+            await getApi(url).then((response) => {
+
+                setEmployees(response.docs);
+                console.log(response, "i m calling incomes data in the fetch employee data function")
+                let obj = {
+                    "totalDocs": response.totalDocs,
+                    "limit": response.limit,
+                    "totalPages": response.totalPages,
+                    "page": response.page,
+                    "pagingCounter": response.pagingCounter,
+                    "hasPrevPage": response.hasPrevPage,
+                    "hasNextPage": response.hasNextPage,
+                    "prevPage": response.prevPage,
+                    "nextPage": response.nextPage
+                }
+                setPageOption(obj)
+                console.log(formattedData, "i m calling formatteddata")
+            })
+                .catch(error => console.log('error', error));
+        } catch (error) {
+            console.error('Error fetching student data:', error);
+        }
+    };
 
     const fetchStudentData = async (searchPara, pageSize, page) => {
         try {
@@ -1133,7 +1256,8 @@ const Student = () => {
                                         </Nav>
                                     </div>
                                 </div>
-                                <TableContainer
+
+                                {/* <TableContainer
                                     columns={columns}
                                     data={formattedData}
                                     isGlobalFilter={true}
@@ -1146,7 +1270,23 @@ const Student = () => {
                                     pageState={pageValue}
                                     searchWord={searchWord}
                                     setsearchWord={setsearchWord}
+                                /> */}
+
+                                <TableContainer
+                                    columns={columns}
+                                    data={data}
+                                    isGlobalFilter={true}
+                                    isAddOptions={false}
+                                    customPageSizeValue={customPageSizeValue}
+                                    setcustomPageSizeValue={setcustomPageSizeValue}
+                                    className="custom-header-css"
+                                    searchValue={filterData}
+                                    pageOptionFromParents={pageOption}
+                                    pageState={pageValue}
+                                    searchWord={searchWord}
+                                    setsearchWord={setsearchWord}
                                 />
+
                             </CardBody>
                         </Card>
                     </CardBody>
@@ -1616,11 +1756,11 @@ const Student = () => {
                                                 name="dateOfJoining"
                                                 id="dateOfJoiningInput"
                                                 className="form-control"
-                                                value={formatDateForInput(employeeFormData.dateOfJoining) || getCurrentDate()}
+                                                value={formatDateForInput(employeeFormData.dateOfJoining)}
                                                 onChange={(e) => handleEmployeeInputChange(e)}
                                                 required
                                             />
-                                            {/* {employeeErrors.dateOfJoining && <div className="text-danger">{employeeErrors.dateOfJoining}</div>} */}
+                                            {employeeErrors.dateOfJoining && <div className="text-danger">{employeeErrors.dateOfJoining}</div>}
                                         </div>
                                     </Col>
                                 </Row>

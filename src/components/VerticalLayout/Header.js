@@ -23,8 +23,8 @@ import dropbox from "../../assets/images/brands/dropbox.png";
 import mail_chimp from "../../assets/images/brands/mail_chimp.png";
 import slack from "../../assets/images/brands/slack.png";
 
-import logo from "../../assets/images/logo.svg";
-import logoLightSvg from "../../assets/images/logo-light.svg";
+import logo from "../../assets/images/logo_final.png";
+import logoLightSvg from "../../assets/images/logo_final.png";
 
 //i18n
 import { withTranslation } from "react-i18next";

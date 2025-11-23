@@ -258,7 +258,25 @@ const SidebarContent = props => {
 
               </ul>
             </li>
+            {/* User Management */}
+            <li className="menu-title">User Management</li>
+            <li>
+              <Link to="/#" className="has-arrow ">
+                <i className="bx bx-home"></i>
+                <span>{props.t("Users")}</span>
+              </Link>
+              <ul className="sub-menu">
 
+                <li>
+                  <Link to={studentNumber === undefined ? "/student" : installmentUrl} >
+                    <i className="bx bx-home"></i>
+                    <span>{props.t("Create Users")}</span>
+                  </Link>
+                </li>
+
+              </ul>
+            </li>
+            
             {/* Income */}
             <li className="menu-title">Incomes</li>
             <li>
@@ -299,24 +317,7 @@ const SidebarContent = props => {
               </ul>
             </li>
 
-            {/* User Management */}
-            <li className="menu-title">User Management</li>
-            <li>
-              <Link to="/#" className="has-arrow ">
-                <i className="bx bx-home"></i>
-                <span>{props.t("Users")}</span>
-              </Link>
-              <ul className="sub-menu">
 
-                <li>
-                  <Link to={studentNumber === undefined ? "/student" : installmentUrl} >
-                    <i className="bx bx-home"></i>
-                    <span>{props.t("Create Users")}</span>
-                  </Link>
-                </li>
-
-              </ul>
-            </li>
 
             {/* Project Management */}
             <li className="menu-title">Project Management</li>

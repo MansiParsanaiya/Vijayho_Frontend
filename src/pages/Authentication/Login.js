@@ -33,6 +33,7 @@ import { result } from "lodash";
 import { apiRoutes } from "helpers/api_routes";
 import { postApi, putApi } from "helpers/ApiMiddleware";
 import Swal from 'sweetalert2'
+import useUserRole from 'helpers/userRoleHook';
 
 
 const Login = props => {
@@ -40,6 +41,9 @@ const Login = props => {
   const navigate = useNavigate();
   const [error, seterror] = useState("")
   const [loginStatus, setloginStatus] = useState('');
+
+  const userRole = useUserRole();
+  const isDisabled = userRole === 'user';
 
   //meta title
   document.title = "Login | EMS - React Admin & Dashboard Template";
@@ -95,10 +99,10 @@ const Login = props => {
               toast.onmouseleave = Swal.resumeTimer;
             }
           });
-          Toast.fire({
+          {Toast.fire({
             icon: "success",
             title: "Login successfully 😊"
-          });
+          });}
           localStorage.setItem('authUser', JSON.stringify(authUserData));
 
         } else {
@@ -125,6 +129,21 @@ const Login = props => {
   // const { error } = useSelector(state => ({
   //   error: state.Login.error,
   // }));
+
+  const [userCount, setUserCount] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getApi(apiRoutes.totalCount);
+        setUserCount(response.data);
+        console.log(response.data, " I'm data");
+      } catch (error) {
+        console.error('Error fetching user count:', error);
+      }
+    };
+    fetchData();
+  }, [userCount]);
 
   const signIn = (res, type) => {
     if (type === "google" && res) {

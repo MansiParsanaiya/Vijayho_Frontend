@@ -150,9 +150,6 @@ const TableContainer = ({
   console.log(page, "i m calling from page tablecontainer")
   console.log(preGlobalFilteredRows, "i m calling from docs tablecontainer")
 
-
-
-
   const nextPageMoveDouble = () => {
     searchValue(searchWord, customPageSizeValue, pageOptionFromParents?.totalPages);
   }
@@ -162,7 +159,7 @@ const TableContainer = ({
   }
 
   const nextPageMove = () => {
-    console.log(pageOptionFromParents," i m calling pagggeoptionnnnnnnnnnnnnnnnnnnnnnnnn")
+    console.log(pageOptionFromParents, " i m calling pagggeoptionnnnnnnnnnnnnnnnnnnnnnnnn")
     searchValue(searchWord, customPageSizeValue, pageOptionFromParents?.nextPage);
   }
 

@@ -150,13 +150,13 @@ const Installment = () => {
 
         let value = ``;
 
-        let feesPay=student.feesPay;
+        let feesPay = student.feesPay;
         let amountpay;
         let remainingFees;
 
         allInstallments.map((installment, index) => {
-            amountpay=installment.amountPaid;
-            remainingFees=installment.remainingFees
+            amountpay = installment.amountPaid;
+            remainingFees = installment.remainingFees
 
             if (installment.amountPay !== 0) {
 
@@ -185,7 +185,7 @@ const Installment = () => {
             </td>
             </tr>  `;
             }
-    
+
         })
 
 
@@ -502,8 +502,10 @@ const Installment = () => {
             <div className="page-content">
                 <Container fluid>
                     <Breadcrumbs title="EMS" breadcrumbItem="Installment Detail" />
-                    <div className='d-flex justify-content-end align-items-center'>
-
+                    <div className='d-flex justify-content-start align-items-center'>
+                        <Link to='/student'>
+                            <button type="button" className="btn btn-primary">View Student Detail's</button>
+                        </Link>
                     </div>
                     <CardBody className="pt-0">
                         <Card className='mt-3'>

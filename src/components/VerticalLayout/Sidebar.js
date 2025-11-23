@@ -9,32 +9,32 @@ import SidebarContent from "./SidebarContent";
 
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/images/logo.svg";
-import logoLightPng from "../../assets/images/logo-light.png";
-import logoLightSvg from "../../assets/images/logo-light.svg";
-import logoDark from "../../assets/images/logo-dark.png";
+import logo from "../../assets/images/vijayho-logo-5.jpg";
+import logoLightPng from "../../assets/images/vijayho-logo-5.jpg";
+import logoLightSvg from "../../assets/images/vijayho-logo-5.jpg";
+import logoDark from "../../assets/images/vijayho-logo-5.jpg";
 
 const Sidebar = props => {
 
   return (
     <React.Fragment>
       <div className="vertical-menu">
-        <div className="navbar-brand-box">
+        <div className="navbar-brand-box mt-3">
           <Link to="/" className="logo logo-dark">
             <span className="logo-sm">
-              <img src={logo} alt="" height="22" />
+              <img src={logo} alt="" style={{height:"65px", width:"120px"}}/>
             </span>
             <span className="logo-lg">
-              <img src={logoDark} alt="" height="17" />
+              <img src={logoDark} alt="" style={{height:"65px", width:"120px"}}/>
             </span>
           </Link>
 
-          <Link to="/" className="logo logo-light">
+          <Link to="/" className="logo logo-light ">
             <span className="logo-sm">
-              <img src={logoLightSvg} alt="" height="22" />
+              <img src={logoLightSvg} alt="" style={{height:"65px", width:"140px"}}/>
             </span>
             <span className="logo-lg">
-              <img src={logoLightPng} alt="" height="19" />
+              <img src={logoLightPng} alt=""style={{height:"65px", width:"140px"}} />
             </span>
           </Link>
         </div>
