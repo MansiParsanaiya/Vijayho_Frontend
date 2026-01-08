@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+// http://localhost:8000/
 // https://vijayhobackend.onrender.com
 
 const postApi = async (route, body) => {
@@ -17,7 +18,7 @@ const postApi = async (route, body) => {
     };
 
 
-    return fetch(`http://localhost:8000/${route}`, requestOptions)
+    return fetch(`https://vijayhobackend.onrender.com/${route}`, requestOptions)
         .then(response => response.json())
 
 }
@@ -35,7 +36,7 @@ const putApi = async (route, body) => {
         redirect: 'follow'
     };
 
-    return fetch(`http://localhost:8000/${route}`, requestOptions)
+    return fetch(`https://vijayhobackend.onrender.com/${route}`, requestOptions)
         .then(response => response.json());
 }
 
@@ -50,7 +51,7 @@ const deleteApi = async (route) => {
         redirect: 'follow'
     };
 
-    return fetch(`http://localhost:8000/${route}`, requestOptions)
+    return fetch(`https://vijayhobackend.onrender.com/${route}`, requestOptions)
         .then(response => response.json());
 }
 
@@ -65,7 +66,7 @@ const getApi = async (route) => {
         redirect: 'follow'
     };
 
-    return fetch(`http://localhost:8000/${route}`, requestOptions)
+    return fetch(`https://vijayhobackend.onrender.com/${route}`, requestOptions)
         .then(response => response.json());
 }
 
@@ -83,7 +84,7 @@ const patchApi = async (route, body) => {
         redirect: 'follow'
     };
 
-    return fetch(`http://localhost:8000/${route}`, requestOptions)
+    return fetch(`https://vijayhobackend.onrender.com/${route}`, requestOptions)
         .then(response => response.json());
 }
 
